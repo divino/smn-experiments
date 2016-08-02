@@ -1,0 +1,60 @@
+<config xmlns="http://marklogic.com/roxy/cpf">
+  <domains>
+    <!-- one <domain> for each cpf domain -->
+    <domain>
+      <name>SMN Experiments Domain</name>
+      <description>This domain is awesome!!!</description>
+      <!-- one <pipeline> for each cpf pipeline to install in this domain -->
+      <!--
+      <pipelines>
+        <pipeline>/locaton/to/your/pipeline.xml</pipeline>
+      </pipelines>
+      -->
+      <system-pipelines>
+        <system-pipeline>Conversion Processing</system-pipeline>
+        <system-pipeline>Status Change Handling</system-pipeline>
+        <system-pipeline>DocBook Conversion</system-pipeline>
+        <system-pipeline>HTML Conversion</system-pipeline>
+        <system-pipeline>MS Office Conversion</system-pipeline>
+        <system-pipeline>Office OpenXML Extract</system-pipeline>
+        <system-pipeline>PDF Conversion</system-pipeline>
+      </system-pipelines>
+<!--
+      3 types of scopes exist: Make sure you use one
+
+      <scope>
+        <type>directory</type>
+        <uri>/</uri>
+        <depth>infinity</depth>
+      </scope>
+      <scope>
+        <type>collection</type>
+        <uri>MyCollection</uri>
+        <depth/>
+      </scope>
+      <scope>
+        <type>document</type>
+        <uri>/stuff.xml</uri>
+        <depth/>
+      </scope>
+-->
+      <scope>
+        <type>collection</type>
+        <uri>smn-experiments</uri>
+        <depth/>
+      </scope>
+      <context>
+        <modules-database>${modules-db}</modules-database>
+        <root>/</root>
+      </context>
+      <restart-user>${app-name}-user</restart-user>
+      <!-- Permissions are optional -->
+      <permissions>
+        <permission>
+          <capability>execute</capability>
+          <role-name>${app-role}</role-name>
+        </permission>
+      </permissions>
+    </domain>
+  </domains>
+</config>
